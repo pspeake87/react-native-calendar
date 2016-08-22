@@ -5,6 +5,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Image
 } from 'react-native';
 
 import Day from './Day';
@@ -27,13 +28,13 @@ export default class Calendar extends Component {
     dayHeadings: PropTypes.array,
     eventDates: PropTypes.array,
     monthNames: PropTypes.array,
-    nextButtonText: PropTypes.string,
+    nextButtonText: PropTypes.number,
     onDateSelect: PropTypes.func,
     onSwipeNext: PropTypes.func,
     onSwipePrev: PropTypes.func,
     onTouchNext: PropTypes.func,
     onTouchPrev: PropTypes.func,
-    prevButtonText: PropTypes.string,
+    prevButtonText: PropTypes.number,
     scrollEnabled: PropTypes.bool,
     selectedDate: PropTypes.any,
     showControls: PropTypes.bool,
@@ -227,9 +228,9 @@ export default class Calendar extends Component {
             style={[styles.controlButton, this.props.customStyle.controlButton]}
             onPress={this.onPrev}
           >
-            <Text style={[styles.controlButtonText, this.props.customStyle.controlButtonText]}>
-              {this.props.prevButtonText}
-            </Text>
+            <Image resizeMode={'contain'} style={[styles.controlButtonText, this.props.customStyle.controlButtonText]} source={this.props.prevButtonText}/>
+
+
           </TouchableOpacity>
           <Text style={[styles.title, this.props.customStyle.title]}>
             {localizedMonth} {this.state.currentMonthMoment.year()}
@@ -238,9 +239,7 @@ export default class Calendar extends Component {
             style={[styles.controlButton, this.props.customStyle.controlButton]}
             onPress={this.onNext}
           >
-            <Text style={[styles.controlButtonText, this.props.customStyle.controlButtonText]}>
-              {this.props.nextButtonText}
-            </Text>
+            <Image resizeMode={'contain'} style={[styles.controlButtonTextNext, this.props.customStyle.controlButtonText]} source={this.props.nextButtonText}/>
           </TouchableOpacity>
         </View>
       )
