@@ -14,9 +14,12 @@ const styles = StyleSheet.create({
   },
   controlButton: {
   },
+  controlButtonTextNext: {
+    margin: 10,
+    transform: [{rotate: '180deg'}]
+  },
   controlButtonText: {
     margin: 10,
-    fontSize: 15,
   },
   title: {
     flex: 1,
